@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pendaftaran Jemaat</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Form Pendaftaran Jemaat</h1>
+    <form action="#" method="POST">
+      <div class="form-group">
+        <label for="full-name">Nama Lengkap</label>
+        <input type="text" id="full-name" name="full-name" placeholder="Masukkan nama lengkap Anda" required>
+      </div>
+      <div class="form-group">
+        <label for="wa-number">Nomor WhatsApp Aktif</label>
+        <input type="tel" id="wa-number" name="wa-number" placeholder="Masukkan nomor WhatsApp Anda" required>
+      </div>
+      <div class="form-group">
+        <label for="num-attendees">Jumlah Jemaat yang Akan Hadir</label>
+        <input type="number" id="num-attendees" name="num-attendees" min="1" placeholder="Masukkan jumlah jemaat" required>
+      </div>
+      <div class="form-group">
+        <label for="other-names">Nama Jemaat Lain (Anak dibawah 12 Tahun)</label>
+        <textarea id="other-names" name="other-names" placeholder="Masukkan nama jemaat lain, pisahkan dengan koma"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="other-names">Nama Jemaat Lain (Remaja dan Dewasa)</label>
+        <textarea id="other-names" name="other-names" placeholder="Masukkan nama jemaat lain, pisahkan dengan koma"></textarea>
+      </div>
+      <button type="submit">Daftar</button>
+    </form>
+  </div>
+  <script>
+    const form = document.querySelector('form');
+    const formClosedMessage = document.createElement('div');
+    formClosedMessage.innerHTML = `
+      <h2>Pendaftaran Ditutup</h2>
+      <p>Terima kasih atas partisipasi Anda. Pendaftaran telah ditutup.</p>
+    `;
+  
+    // Tentukan tanggal penutupan (format: YYYY-MM-DD)
+    const closeDate = new Date('2024-12-15');
+  
+    if (new Date() > closeDate) {
+      form.replaceWith(formClosedMessage);
+    }
+  </script>  
+</body>
+</html>
